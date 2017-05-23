@@ -16,9 +16,8 @@ rules:
 - apiGroups:
   - ""
   - "extensions"
-  resources: ["services","nodes","ingresses","pods"]
+  resources: ["services","nodes","ingresses","pods","ingresses/status"]
   verbs: ["list","watch","create","update","delete","get"]
-
 ---
 apiVersion: rbac.authorization.k8s.io/v1beta1
 kind: ClusterRoleBinding
@@ -31,7 +30,7 @@ roleRef:
 subjects:
   - kind: ServiceAccount
     name: ingress
-    namespace: kube-system 
+    namespace: kube-system
 
 ---
 apiVersion: extensions/v1beta1
